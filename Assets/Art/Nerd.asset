@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92362e9695fccc47b9e2e1f29d8dcea, type: 3}
-  m_Name: Crying
+  m_Name: Nerd
   m_EditorClassIdentifier: 
-  emojiSprite: {fileID: 198906207, guid: 61e0466603a818d4998825ae86c02a11, type: 3}
-  emojiPrefab: {fileID: 7315864125070454286, guid: 66022e8b4b83d36409599cdaf721cca0, type: 3}
+  emojiSprite: {fileID: 21300000, guid: a25031bce409b6a498feddcd89d9483d, type: 3}
+  reactionType: 1

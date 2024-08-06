@@ -433,9 +433,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4787643634354146495}
   - {fileID: 1135813716606131555}
   - {fileID: 1057396159576826541}
-  - {fileID: 4787643634354146495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5007806024317532067
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 315149367
+  GlobalObjectIdHash: 2851544683
   InScenePlacedSourceGlobalObjectIdHash: 315149367
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -473,6 +473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emojiSO:
   - {fileID: 11400000, guid: c0e7513a1c3987f4eafeb40157ffda7a, type: 2}
+  - {fileID: 11400000, guid: e710027f5acc4644b99d4bdd79838768, type: 2}
+  - {fileID: 11400000, guid: e710027f5acc4644b99d4bdd79838768, type: 2}
   templateReaction: {fileID: 997737426149218836, guid: 2be761e0b1c22f049874a5a9231d2aef, type: 3}
   UIReference: {fileID: 6012212648394896181}
   menuButton: 324

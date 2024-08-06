@@ -60,12 +60,12 @@ public class PlayerNetworkUI : NetworkBehaviour
     }
     public GameObject SpawnTempReaction(int index)
     {
-        GameObject tempReaction = Instantiate(templateReaction);
+        GameObject tempReaction = Instantiate(templateReaction, transform.GetChild(0).GetChild(0));
 
         tempReaction.name = emojiSO[index].name;
         tempReaction.GetComponent<Image>().sprite = emojiSO[index].emojiSprite;
-        tempReaction.transform.SetParent(UIReference);
-        
+
+        tempReaction.GetComponent<ReactionTemplate>().reactionType = emojiSO[index].reactionType;
 
         return tempReaction;
     }

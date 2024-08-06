@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4883879966813638139}
   - component: {fileID: 6050827316044313727}
   - component: {fileID: 242042487176115364}
+  - component: {fileID: 3069956890388667179}
   - component: {fileID: 6051068765928704036}
   m_Layer: 5
   m_Name: ReactionButton
@@ -120,7 +121,40 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6050827316044313727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6051068765928704036}
+        m_TargetAssemblyTypeName: ReactionTemplate, Assembly-CSharp
+        m_MethodName: OnReactionButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3069956890388667179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997737426149218836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3770466076
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &6051068765928704036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,5 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a837dd53ec8e0a4292efa66896f7618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionObj: {fileID: 7315864125070454286, guid: 66022e8b4b83d36409599cdaf721cca0, type: 3}
+  reactionType: 0
+  sleepingEmojiPrefab: {fileID: 7315864125070454286, guid: 66022e8b4b83d36409599cdaf721cca0, type: 3}
+  nerdEmojiPrefab: {fileID: 7315864125070454286, guid: 8834480f493150242b3fab91b96144d0, type: 3}
   button: {fileID: 242042487176115364}

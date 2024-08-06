@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3639972345188310395}
   - component: {fileID: 5188310614625866150}
   m_Layer: 5
-  m_Name: CryingObj
+  m_Name: SleepingEmoji
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
