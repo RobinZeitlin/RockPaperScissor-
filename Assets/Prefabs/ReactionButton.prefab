@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4883879966813638139}
   - component: {fileID: 6050827316044313727}
   - component: {fileID: 242042487176115364}
-  - component: {fileID: 3069956890388667179}
+  - component: {fileID: -5760447117031540538}
   - component: {fileID: 6051068765928704036}
   m_Layer: 5
   m_Name: ReactionButton
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3069956890388667179
+--- !u!114 &-5760447117031540538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3770466076
+  GlobalObjectIdHash: 318958238
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -168,6 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactionType: 0
-  sleepingEmojiPrefab: {fileID: 7315864125070454286, guid: 66022e8b4b83d36409599cdaf721cca0, type: 3}
+  sleepingEmojiPrefab: {fileID: 7315864125070454286, guid: c3fab498021fd43438cde11e1e31bcd9, type: 3}
   nerdEmojiPrefab: {fileID: 7315864125070454286, guid: 8834480f493150242b3fab91b96144d0, type: 3}
   button: {fileID: 242042487176115364}

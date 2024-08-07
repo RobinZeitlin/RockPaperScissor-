@@ -14,30 +14,54 @@ public class PlayerNetwork : NetworkBehaviour
     [Header("References")]
     [SerializeField] private Camera pCamera;
     [SerializeField] private GameObject pMesh;
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private Transform target;
+    [SerializeField] private GameObject canvas;
+
+    [SerializeField] private GameObject arms;
+
+    private Rigidbody rb;
+    private Transform target;
 
     private float xRotation = 0f;
     private float yRotation = 0f;
 
+    private RectTransform rectTransform;
+    private Vector3 originalPosition;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+       
     }
 
+    private void Start()
+    {
+        rectTransform = arms.GetComponent<RectTransform>();
+        originalPosition = rectTransform.anchoredPosition;
+    }
+
+    public void Die()
+    {
+        transform.position = new Vector3(0, 0, 0);
+
+        Debug.Log("Player Died");
+    }
     private void Update()
     {
         if (!IsOwner)
         {
             pCamera.enabled = false;
+            canvas.SetActive(false);
             return;
         }
 
         if(pMesh != null)
-        pMesh.SetActive(false);
+            pMesh.SetActive(false);
 
         Movement();
         Camera();
+
+        float yOffset = Mathf.Sin(Time.time * 5) * 10f;
+        rectTransform.anchoredPosition = new Vector2(originalPosition.x, originalPosition.y + 50f + yOffset);
     }
 
     void Movement()

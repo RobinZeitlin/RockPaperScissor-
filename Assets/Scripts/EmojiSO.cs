@@ -6,5 +6,5 @@ using UnityEngine;
 public class EmojiSO : ScriptableObject
 {
     public Sprite emojiSprite;
-    public ReactionType reactionType;
+    public GameObject emojiPrefab;
 }
