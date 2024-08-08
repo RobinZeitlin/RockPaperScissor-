@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using Unity.Netcode;
 
 [RequireComponent(typeof(ParticleSystem))]
-public class CFX_AutoDestructShuriken : MonoBehaviour
+public class CFX_AutoDestructShuriken : NetworkBehaviour
 {
 	public bool OnlyDeactivate;
 	
@@ -27,9 +28,22 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 					#endif
 				}
 				else
-					GameObject.Destroy(this.gameObject);
-				break;
+				{/*
+					NetworkObject networkObject = GetComponent<NetworkObject>();
+
+					if (networkObject != null)
+					{
+						networkObject.Despawn();
+					}
+					else
+					{
+						Destroy(this.gameObject);
+					}*/
+                }
+                break;
 			}
 		}
 	}
+
+
 }

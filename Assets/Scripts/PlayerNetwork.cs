@@ -30,7 +30,6 @@ public class PlayerNetwork : NetworkBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-       
     }
 
     private void Start()

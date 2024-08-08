@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -65,7 +65,7 @@ public class PlayerNetworkUI : NetworkBehaviour
         tempReaction.name = emojiSO[index].name;
         tempReaction.GetComponent<Image>().sprite = emojiSO[index].emojiSprite;
 
-        tempReaction.GetComponent<ReactionTemplate>().reactionType = emojiSO[index].reactionType;
+        //tempReaction.GetComponent<ReactionTemplate>().reactionType = emojiSO[index].reactionType;
 
         return tempReaction;
     }
@@ -119,4 +119,3 @@ public class PlayerNetworkUI : NetworkBehaviour
         spawnedReactions.Clear();
     }
 }
-*/

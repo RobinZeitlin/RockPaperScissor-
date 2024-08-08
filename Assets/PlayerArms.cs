@@ -8,18 +8,20 @@ using UnityEngine.UI;
 
 public class PlayerArms : NetworkBehaviour
 {
+    [Header("Sprites")]
     [SerializeField] private Sprite fistAboveHandSpr;
-    [SerializeField] private Sprite rockSpr;
+    [SerializeField] private Sprite downFist;
+    [SerializeField] private Sprite rockFist;
     [SerializeField] private Sprite paperSpr;
     [SerializeField] private Sprite scissorsSpr;
 
+    [Header("References")]
     [SerializeField] private Image img;
     [SerializeField] private TextMeshProUGUI tapCountTxt;
-
     [SerializeField] private GameObject particleEffect;
-
     [SerializeField] private Camera myCamera;
 
+    [Header("Values")]
     [SerializeField] private float tapCoolDown;
 
     private bool isCooldown = false;
@@ -45,7 +47,7 @@ public class PlayerArms : NetworkBehaviour
             }
             else
             {
-                ChangeSprite(rockSpr);
+                ChangeSprite(downFist);
                 StartCoroutine(TapCooldown());
             }
         }
@@ -58,28 +60,36 @@ public class PlayerArms : NetworkBehaviour
         currentTapcount = 0;
 
         Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             GameObject hitObj = hit.collider.gameObject;
-            SpawnParticleServerRPC(hit.point, hit.normal);
 
             if (hit.collider.CompareTag("Player"))
             {
-                Debug.Log("Hit Player");
+                NetworkObject networkObject = hitObj.GetComponent<NetworkObject>();
+
+                if (networkObject != null)
+                {
+                    SpawnParticleServerRPC(networkObject.NetworkObjectId, hit.point, hit.normal);
+                }
             }
         }
     }
 
     [ServerRpc]
-    private void SpawnParticleServerRPC(Vector3 hitPoint, Vector3 hitNormal)
+    private void SpawnParticleServerRPC(ulong networkObjectId, Vector3 hitPoint, Vector3 hitNormal)
     {
         GameObject objToSpawn = Instantiate(particleEffect, hitPoint, Quaternion.LookRotation(hitNormal));
         objToSpawn.GetComponent<NetworkObject>().Spawn();
 
-        /*PlayerNetwork pNetwork = hitObj.GetComponentInChildren<PlayerNetwork>();
-        if (pNetwork != null)
-            pNetwork.Die();
-        */
+        NetworkObject hitNetworkObject = NetworkManager.Singleton.SpawnManager.SpawnedObjects[networkObjectId];
+
+        if (hitNetworkObject != null)
+        {
+            PlayerNetwork pNetwork = hitNetworkObject.GetComponentInChildren<PlayerNetwork>();
+            if (pNetwork != null)
+                pNetwork.Die();
+        }
     }
 
     Sprite RandomSprite()
@@ -91,13 +101,13 @@ public class PlayerArms : NetworkBehaviour
         switch(randomNmbr)
         {
             case 0:
-                return rockSpr;
+                return rockFist;
             case 1:
                 return paperSpr;
             case 2:
                 return scissorsSpr;
             default:
-                return rockSpr;
+                return rockFist;
         }
     }
     private IEnumerator TapCooldown()
